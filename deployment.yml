@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: kdemo
+        app: demo
     spec:
       containers:
       - image: tonybbsr/demo:2
