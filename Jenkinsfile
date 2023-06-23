@@ -17,7 +17,7 @@ node {
                         //sh "git switch main"
                         sh "cat deployment.yml"
                         sh "sed -i 's+tonybbsr/demo.*+tonybbsr/demo:${DOCKERTAG}+g' deployment.yml"
-                        sh "cat deployment.yaml"
+                        sh "cat deployment.yml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/manifest.git HEAD:main"
