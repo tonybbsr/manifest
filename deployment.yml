@@ -18,7 +18,7 @@ spec:
         app: kdemo
     spec:
       containers:
-      - image: tonybbsr/demo:8
+      - image: tonybbsr/demo:2
         name: demo
         resources: {}
 status: {}
