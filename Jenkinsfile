@@ -12,6 +12,7 @@ node {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                      withCredentials([string(credentialsId: 'github-token', variable: 'GITHUB_TOKEN')]) {
                         //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+                        sh 'export GIT_USERNAME=tonybbsr'
                         sh "git config user.email tonybbsr@gmail.com"
                         sh "git config user.name tonybbsr"
                         //sh "git switch main"
