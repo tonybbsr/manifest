@@ -26,7 +26,7 @@ metadata:
   name: hello-world
 spec:
   ports:
-  - port: 8080
+  - port: 8081
     targetPort: 8080
   selector:
     app: hello-world
@@ -49,4 +49,4 @@ spec:
           service:
             name: hello-world
             port:
-              number: 8080
+              number: 8081
