@@ -1,24 +1,52 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  name: hello-world
   labels:
-    app: demo
-  name: demo
+    app: hello-world
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo
-  strategy: {}
+      app: hello-world
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: demo
+        app: hello-world
     spec:
       containers:
-      - image: tonybbsr/demo:35
-        name: demo
-        resources: {}
-status: {}
+      - name: hello-world
+        image: platform9community/hello-pf9
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: hello-world
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-world
+  namespace: default
+  annotations:
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "demo.pf9.io"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: hello-world
+            port:
+              number: 8080
