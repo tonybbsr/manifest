@@ -18,6 +18,7 @@ node {
                         //sh "git switch main"
                          
                         sh "cd deployment"
+                          sh "ls -ltr"
                         sh "cat deployment.yml"
                         sh "sed -i 's+tonybbsr/demo.*+tonybbsr/demo:${DOCKERTAG}+g' deployment.yml"
                         sh "cat deployment.yml"
