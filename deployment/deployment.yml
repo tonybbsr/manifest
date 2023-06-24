@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: demo
-      image: 'tonybbsr/demo:latest39
+      image: 'tonybbsr/demo:39
 ---
 kind: Service
 apiVersion: v1
