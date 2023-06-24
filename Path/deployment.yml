@@ -1,0 +1,36 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  containers:
+    - name: demo
+      image: 'tonybbsr/demo:39
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo-service
+spec:
+  selector:
+    app: demo
+  ports:
+    - port: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+spec:
+  rules:    
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: demo-service
+                port:
+                  number: 8080
