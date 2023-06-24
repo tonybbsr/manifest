@@ -18,7 +18,7 @@ spec:
         app: demo
     spec:
       containers:
-      - image: tonybbsr/demo:2
+      - image: tonybbsr/demo:36
         name: demo
         resources: {}
 status: {}
